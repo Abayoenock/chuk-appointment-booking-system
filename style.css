@@ -1,0 +1,804 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        font-family: Proxima Nova, system-ui, sans-serif;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+/* when the user starts scrolling */
+.scroll-header {
+    @apply bg-white/80 backdrop-blur-sm shadow-sm
+}
+
+/* Active link */
+.active-link {
+    position: relative;
+    @apply bg-white/10
+}
+
+.active-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 10px;
+    height: 100%;
+    @apply bg-black animate-pulse z-[100]
+}
+
+/* Active link */
+.active-link2 {
+    position: relative;
+    @apply text-darkBlue
+}
+
+.active-link2::after {
+    content: '';
+    position: absolute;
+    bottom: -.5rem;
+    left: 0;
+    width: 50%;
+    height: 2px;
+    @apply bg-darkBlue animate-bounce
+}
+
+
+
+/* the reusable class for the buttons */
+.btn {
+
+    @apply p-3 px-6 outline-none
+}
+
+input[type="file"]::file-selector-button {
+    @apply bg-gradient-to-r from-gray-400/70 to-blue-500/70 transition ease-in-out duration-500 rounded-lg px-3 py-1 text-gray-100 border-none cursor-pointer
+}
+
+
+
+
+
+
+
+
+/* the styles for the scroll bar */
+::-webkit-scrollbar {
+
+    width: 10px;
+    height: 10px;
+
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-primary/80
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-primary/40
+}
+
+.overlay::-webkit-scrollbar {
+
+    width: 0px;
+    height: 0px;
+
+
+}
+
+.border-img {
+    border-radius: 0% 0% 32% 26% / 44% 17% 61% 16%;
+}
+
+.back {
+    /* the back ground image for the services */
+    background: url(../img/devImgs/ss.png), hsl(0, 0%, 98%);
+    background-size: 200px;
+    background-repeat: repeat;
+    z-index: 0;
+
+}
+
+.back0 {
+    background: url(../img/devImgs/bback.png), hsl(0, 0%, 98%);
+    background-size: cover;
+
+    /* background: rgb(255, 255, 255);
+    background: linear-gradient(265deg, rgba(255, 255, 255, 1) 0%, rgba(65, 169, 184, 1) 69%); */
+
+
+
+}
+
+.backTomatoes {
+    background: url(../img/devImgs/tomatoes.jpg), hsl(0, 0%, 98%);
+    background-size: cover;
+
+
+
+}
+
+.back-about {
+    background: url(../img/devImgs/back.png), hsl(0, 0%, 98%);
+    background-size: cover;
+}
+
+.back-backgroung {
+    border-radius: 11% 9% 52% 30% / 16% 18% 9% 14%;
+
+
+}
+
+.bg-gradient {
+    background: #b3ffab;
+    background: -webkit-linear-gradient(0deg, #b3ffab 0%, #12fff7 100%);
+    background: linear-gradient(0deg, #b3ffab 0%, #12fff7 100%);
+}
+
+
+
+.experience-back {
+    background-image: url("../img/devImgs/Ideationsession.svg");
+    background-size: 500px;
+    background-repeat: no-repeat;
+    background-position: 30px 50px;
+
+
+}
+
+.rounded-div {
+    border-radius: 66% 14% 52% 30% / 69% 18% 48% 14%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* add a litle space btn the bullets */
+.swiper-pagination .swiper-pagination-bullet {
+    @apply mr-2 bg-black
+}
+
+/* to change the backgroup of the active span */
+.swiper-pagination .swiper-pagination-bullet-active {
+    @apply bg-green-800
+}
+
+
+
+
+
+/*Input focus move up label*/
+.contact__input:focus+.contact__label {
+
+    @apply text-base -top-3 left-0 z-10
+}
+
+/*Input focus sticky top label*/
+.contact__input:not(:placeholder-shown).contact__input:not(:focus)+.contact__label {
+    @apply text-base -top-3 left-0 z-10
+}
+
+/* the styles for the close btn */
+
+.humbeger {
+    cursor: pointer;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    transition: all 0.25s;
+}
+
+.humbeger-top,
+.humbeger-middle,
+.humbeger-bottom {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 24px;
+    height: 2px;
+    background-color: #000000;
+    transition: all 0.25s;
+
+
+
+}
+
+.humbeger-middle {
+
+    transform: translateY(7px) translateX(-3px);
+
+}
+
+.humbeger-bottom {
+
+    transform: translateY(14px);
+}
+
+.open {
+    transform: rotate(-90deg);
+
+}
+
+.open .humbeger-top {
+
+    transform: rotate(315deg) translateX(6px) translate(-6px);
+
+}
+
+.open .humbeger-middle {
+    display: none;
+}
+
+.open .humbeger-bottom {
+    transform: rotate(-315deg) translateX(-6px) translate(6px);
+}
+
+.open .humbeger-top,
+.open .humbeger-middle,
+.open .humbeger-bottom {
+    background-color: white;
+}
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    .mobile-menu {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        width: 80%;
+        height: 100vh;
+        top: 0;
+        right: -100%;
+        padding: 4rem 0 0 3rem;
+        transition: .3s;
+
+
+        @apply bg-primary bg-opacity-80 gap-y-6 backdrop-blur-md text-gray-200
+    }
+
+    .show-menu {
+        right: 0%;
+    }
+
+    .active-link {
+        position: relative;
+        @apply text-white
+    }
+
+    .active-link::after {
+        content: '';
+        position: absolute;
+        bottom: -.5rem;
+        left: 0;
+        width: 50%;
+        height: 2px;
+        @apply bg-white animate-bounce
+    }
+}
+
+
+.dt-buttons button {
+    font-size: 14px !important;
+    background-color: rgb(35 162 197 / var(--tw-bg-opacity)) !important;
+    border: none !important;
+    border-radius: 4px !important;
+    color: white !important;
+    font-weight: bold !important;
+}
+
+/* to check if the input email is valid and show the tick */
+
+input[type="tel"]:valid+div {
+    @apply flex
+}
+
+
+/* to high ligt the image selectd  */
+
+input[type="radio"]:checked+label div {
+
+    @apply bg-primary/20
+}
+
+/* Customize the label (the container-check) */
+.container-check {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 17px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container-check input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container-check:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container-check input:checked~.checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container-check input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container-check .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.btn-gradient1 {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(265deg, rgba(255, 255, 255, 1) 0%, rgba(2, 86, 133, 1) 24%);
+}
+
+
+.pulse {
+    width: 88px;
+    height: 88px;
+    color: #23a2c5;
+    background: radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
+        radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
+        linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
+        linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.pulse:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    opacity: 0.4;
+    animation: pl3 1s infinite;
+}
+
+@keyframes pl3 {
+    to {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+
+
+
+.circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.circles li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+}
+
+.circles li:nth-child(1) {
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+
+
+.circles li:nth-child(2) {
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.circles li:nth-child(3) {
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+.circles li:nth-child(4) {
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.circles li:nth-child(5) {
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.circles li:nth-child(6) {
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+}
+
+.circles li:nth-child(7) {
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+}
+
+.circles li:nth-child(8) {
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+
+.circles li:nth-child(9) {
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+.circles li:nth-child(10) {
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+@keyframes animate {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+
+}
+
+.triangle {
+    border-top: 60rem solid #fff;
+    border-left: 25rem solid transparent;
+}
+
+
+
+
+
+
+
+.day {
+
+    box-shadow: 0px 0px 3px #CBD4C2;
+    display: flex;
+
+
+    position: relative;
+    @apply w-[40px] p-[10px] h-[40px] cursor-pointer box-border bg-white m-[5px] text-sm justify-center items-center
+}
+
+.day:hover {
+    background-color: #e8faed;
+}
+
+#currentDay {
+
+    @apply bg-gradient-to-r from-green-400/40 to-blue-500/40 font-semibold
+}
+
+.event {
+    font-size: 10px;
+    padding: 4px 6px;
+
+    color: white;
+    border-radius: 5px;
+    max-height: 20px;
+    overflow: hidden;
+    position: absolute;
+    top: -5px;
+    right: 0px;
+    @apply bg-green-600 flex justify-center items-center
+}
+
+.event-number {
+    font-size: 10px;
+    padding: 4px 6px;
+
+    color: white;
+    border-radius: 5px;
+    max-height: 20px;
+    overflow: hidden;
+    position: absolute;
+    top: -5px;
+    right: 0px;
+    @apply bg-green-600 flex justify-center items-center
+}
+
+.event-icon {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+
+}
+
+.event-down {
+    font-size: 8px;
+    padding: 3px 6px;
+
+    color: white;
+    border-radius: 5px;
+    max-height: 20px;
+    overflow: hidden;
+    position: absolute;
+    bottom: -5px;
+    right: 0px;
+    @apply bg-green-600 flex justify-center items-center
+}
+
+.event-not {
+    font-size: 10px;
+    padding: 4px 6px;
+
+    color: white;
+    border-radius: 5px;
+    max-height: 20px;
+    overflow: hidden;
+    position: absolute;
+    top: -5px;
+    right: 0px;
+    @apply bg-red-600 flex justify-center items-center
+}
+
+.event-not-down {
+    font-size: 8px;
+    padding: 3px 6px;
+    color: white;
+    border-radius: 5px;
+    max-height: 20px;
+    overflow: hidden;
+    position: absolute;
+    bottom: -5px;
+    right: 0px;
+    @apply bg-red-600 flex justify-center items-center
+}
+
+.padding {
+    cursor: default !important;
+    background-color: #FFFCFF !important;
+    box-shadow: none !important;
+    visibility: hidden;
+}
+
+#newEventModal,
+#deleteEventModal {
+    display: none;
+    z-index: 20;
+    padding: 25px;
+    background-color: #e8f4fa;
+    box-shadow: 0px 0px 3px black;
+    border-radius: 5px;
+    width: 350px;
+    top: 100px;
+    left: calc(50% - 175px);
+    position: absolute;
+    font-family: sans-serif;
+}
+
+#eventTitleInput {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 25px;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    box-shadow: 0px 0px 3px gray;
+}
+
+#eventTitleInput.error {
+    border: 2px solid red;
+}
+
+#cancelButton,
+#deleteButton {
+    background-color: #d36c6c;
+}
+
+#saveButton,
+#closeButton {
+    background-color: #92a1d1;
+}
+
+#eventText {
+    font-size: 14px;
+}
+
+#modalBackDrop {
+    display: none;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.day-disabled {
+    opacity: 0.5 !important;
+}
+
+/* //data tables */
+#table_id_info {
+    @apply text-xs
+}
+
+.paginate_button {
+    @apply text-xs
+}
+
+.dataTables_paginate span {
+    @apply text-xs
+}
+
+.dataTables_filter {
+    @apply text-xs
+}
+
+
+.dots {
+    width: 72px;
+    height: 40.3px;
+    background: radial-gradient(farthest-side, #2cafd3 90%, #0000) 50% 0,
+        radial-gradient(farthest-side, #2cafd3 90%, #0000) 100% 0;
+    background-size: 17.3px 17.3px;
+    background-repeat: no-repeat;
+    position: relative;
+    animation: dots-pr30iylg 1.5s linear infinite;
+}
+
+.dots:before {
+    content: "";
+    position: absolute;
+    width: 17.3px;
+    height: 17.3px;
+    border-radius: 50%;
+    background: #2cafd3;
+    left: 0;
+    top: 0;
+    animation: dots-q6bpf4lg 1.5s linear infinite,
+        dots-b39z9ilg 0.5s cubic-bezier(0, 200, .8, 200) infinite;
+}
+
+@keyframes dots-pr30iylg {
+
+    0%,
+    31% {
+        background-position: 50% 0, 100% 0;
+    }
+
+    33% {
+        background-position: 50% 100%, 100% 0;
+    }
+
+    43%,
+    64% {
+        background-position: 50% 0, 100% 0;
+    }
+
+    66% {
+        background-position: 50% 0, 100% 100%;
+    }
+
+    79% {
+        background-position: 50% 0, 100% 0;
+    }
+
+    100% {
+        transform: translateX(calc(-100%/3));
+    }
+}
+
+@keyframes dots-q6bpf4lg {
+    100% {
+        left: calc(100% + 10.1px);
+    }
+}
+
+@keyframes dots-b39z9ilg {
+    100% {
+        top: -0.22px;
+    }
+}

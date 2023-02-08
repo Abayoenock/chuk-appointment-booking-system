@@ -1,0 +1,4 @@
+[11-Jan-2023 16:41:31 UTC] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/enlabsr1/chuk.enlabs.rw/doc/backend/db_conn.php on line 11
+[11-Jan-2023 18:42:06 Africa/Kigali] PHP Notice:  Undefined index: docSession in /home/enlabsr1/chuk.enlabs.rw/doc/backend/fetch-timeTable.php on line 4
+[11-Jan-2023 18:42:06 Africa/Kigali] PHP Notice:  Undefined variable: departmentID in /home/enlabsr1/chuk.enlabs.rw/doc/backend/fetch-timeTable.php on line 19
+[11-Jan-2023 18:42:06 Africa/Kigali] PHP Notice:  Undefined variable: userID in /home/enlabsr1/chuk.enlabs.rw/doc/backend/fetch-timeTable.php on line 19

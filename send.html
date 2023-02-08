@@ -1,0 +1,28 @@
+<script src="https://code.jquery.com/jquery-3.6.3.js"
+    integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+    crossorigin="anonymous"></script>
+<script>
+    var form = new FormData();
+    form.append("to", "+250786135953");
+    form.append("from", "E-Labs SMS");
+    form.append("unicode", "0");
+    form.append("sms", "Hello from Mr SMS");
+    form.append("action", "send-sms");
+
+    var settings = {
+        "url": "https://api.mista.io/sms",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+            "x-api-key": "216|8zhwGzIooRFTtwTal0jqudqAz6Q6ENf0wpTxhLgD "
+        },
+        "processData": false,
+        "mimeType": "multipart/form-data",
+        "contentType": false,
+        "data": form
+    };
+
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+    });
+</script>

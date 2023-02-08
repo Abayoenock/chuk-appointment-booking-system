@@ -1,0 +1,21 @@
+
+RewriteEngine On
+ErrorDocument 404 /error.php
+RewriteRule ^home$ index.php [NC,L]
+RewriteRule ^TimeTable$ timeTable.php [NC,L]
+RewriteRule ^report$ report.php [NC,L]
+RewriteRule ^Verify$ confirm.php [NC,L]
+RewriteRule ^dashboard$ dashboard.php [NC,L]
+RewriteRule ^logout$ backend/logout.php [NC,L]
+RewriteRule ^My-profile$ profile.php [NC,L]
+
+
+
+
+
+
+
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# This domain inherits the “PHP” package.
+# php -- END cPanel-generated handler, do not edit
